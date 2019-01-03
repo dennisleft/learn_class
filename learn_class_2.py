@@ -16,7 +16,7 @@ class Employee:
         return self.first+' '+self.last
 
 emp_1=Employee('Pat', 'Nicoles', 40000)
-emp_2=Employee('Daisy','Sandrea',42000)
+emp_2=Employee('Daisy','Sandrea',45000)
 
 print(emp_2.email)
 print(emp_1.fullname())
