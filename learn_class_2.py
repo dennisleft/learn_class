@@ -17,6 +17,7 @@ class Employee:
 
 emp_1=Employee('Pat', 'Nicoles', 40000)
 emp_2=Employee('Daisy','Sandrea',45000)
+emp_3=Employee('Kist','Klone',30000)
 
 print(emp_1.email)
 print(emp_2.fullname())
