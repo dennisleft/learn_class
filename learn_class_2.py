@@ -25,6 +25,13 @@ class Employee:
     def raise_p(self):
         return int(self.pay*self.pay_raise)
 
+    ##class method to change variable pay_raise
+
+    @classmethod    #decorator
+    def set_pay_raise(cls, percent):    #cls is conventional, just like self
+        cls.pay_raise = percent
+
+
 print(Employee.number_of_employees)
 
 
@@ -37,6 +44,10 @@ print(emp_2.fullname())
 emp_3.pay_raise=1.2
 print(emp_3.raise_p())
 print(Employee.number_of_employees)
+
+#using the class method
+Employee.set_pay_raise(1.1)
+print(emp_2.raise_p())
 
 
 
