@@ -51,6 +51,15 @@ class Employee:
             return 'Weekend'
         return 'Weekday'
 
+##inheritance
+class Agents(Employee):
+    number_of_agents=0
+    def __init__(self,first,last,pay,weapon):
+        super().__init__(first,last,pay)
+        self.weapon=weapon
+        Agents.number_of_agents +=1
+
+
 
 
 print(Employee.number_of_employees)
@@ -87,5 +96,9 @@ print(emp_5.first)
 my_date = datetime.date(2015,2,15)
 print(Employee.is_weekday(my_date))
 
-
-
+##inheritance
+agent_1 = Agents('Lana','Kane',420675,'TEC-9')
+print(agent_1.pay,agent_1.weapon)
+#print(Agents.number_of_employees)
+print(Agents.number_of_agents)
+##but I want seperate counting of agents
