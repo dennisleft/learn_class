@@ -14,14 +14,13 @@ class Archer:
         ##
         Archer.number_of_char+=1
 
-    def weapon(self,weapon):
-        self.weapon=weapon
-        return 'Weapn'+self.weapon
+    # def weapon(self,weapon):
+    #     self.weapon=weapon
+    #     return 'Weapon'+self.weapon
 
     def full_profile(self):
-        message = '\nName-> '+self.name+'\nPost-> '+self.post+'\nVoice-> '\
-                   +self.voice+'\n401(k)-> '+f'{self.k_401:,d}'+'$'+'\nSpecial_trait -> '\
-                  +self.special_trait
+        message = f'\nName - > {self.name}\nPost -> {self.post}\nVoice -> {self.voice}\n' \
+                  f'401(k) -> {self.k_401:,d}$\nSpecial trait -> {self.special_trait}'
         return message
     ##f-string used to split the number -> f'{self.k_401:,d}'
 
@@ -31,7 +30,7 @@ class Field_Agent(Archer):
         super().__init__(name,post, voice,k_401,special_trait)
         self.weapon=weapon
     def prof(self):
-        return Archer.full_profile(self)+'\nWeapon -> '+self.weapon
+        return f'{Archer.full_profile(self)}\nWeapon -> {self.weapon}\n'
 
 
 
@@ -54,5 +53,5 @@ print(Krieger.full_profile())
 print(Malory.full_profile())
 print(Lana.prof())
 
-print('\n',Sterling.name,'-',Sterling.weapon)
+print(f'{Sterling.name}-{Sterling.weapon}')
 
