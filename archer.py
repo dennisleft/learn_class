@@ -1,7 +1,7 @@
 ##ARCHER
 ##create profiles for the main characters
 
-class Archer:
+class Character:
     number_of_char = 0
     #pay=0
     def __init__(self,name, post, voice, k_401,special_trait):
@@ -12,7 +12,7 @@ class Archer:
         self.special_trait=special_trait
 
         ##
-        Archer.number_of_char+=1
+        Character.number_of_char+=1
 
     # def weapon(self,weapon):
     #     self.weapon=weapon
@@ -25,12 +25,12 @@ class Archer:
     ##f-string used to split the number -> f'{self.k_401:,d}'
 
 
-class Field_Agent(Archer):
+class Field_Agent(Character):
     def __init__(self, name,post,voice,k_401,weapon,special_trait):
         super().__init__(name,post, voice,k_401,special_trait)
         self.weapon=weapon
     def prof(self):
-        return f'{Archer.full_profile(self)}\nWeapon -> {self.weapon}\n'
+        return f'{Character.full_profile(self)}\nWeapon -> {self.weapon}\n'
 
 
 ##number of seasons and episodes
@@ -50,9 +50,12 @@ class Season:
 
     def episode_number_and_name(self):
         ##add and assign all episodes to the numbers
-        for i in range(self.no_of_episodes):
-            Season.episode_dict[i+1]=self.episodes[i]
-        return Season.episode_dict
+        try:
+            for i in range(self.no_of_episodes):
+                Season.episode_dict[i+1]=self.episodes[i]
+            return Season.episode_dict
+        except IndexError:
+            return f'Number of episodes NOT equal to episodes'
 
     ##show episode name of the ep number
     def display_episode(self,e_number):
@@ -68,13 +71,13 @@ class Season:
 Sterling = Field_Agent('Sterling Archer','Field Agent, Protagonist',
                   'H.Jon Benjamin',480810,'Walther PPK','Tinnitus')
 Lana = Field_Agent('Lana Kane','Field Agent, Deuteragonist','Aisha Tyler',420675,'TEC-9','Big hands')
-Malory = Archer('Malory Archer','CEO','Jessica Walter',2302725,'Micro-management')
-Ray = Archer('Ray Gillette','Analyst, Bomb Specialist, Case Officer, Field Agent',
+Malory = Character('Malory Archer','CEO','Jessica Walter',2302725,'Micro-management')
+Ray = Character('Ray Gillette','Analyst, Bomb Specialist, Case Officer, Field Agent',
              'Adam Reed',205188,'Bionic legs')
-Cyril = Archer('Cyril Figgis','Comptroller','Chris Parnell',9059,'Sex-addict')
-Pam = Archer('Pam Poovey','H.R. Director','Amber Nash',42424,'Farm-Girl')
-Cheryl = Archer('Cheryl Tunt','Secretary','Judy Greer',50390,'Snot Gum, Choking')
-Krieger = Archer('Dr. Algernop Krieger','HOD - Applied Research',
+Cyril = Character('Cyril Figgis','Comptroller','Chris Parnell',9059,'Sex-addict')
+Pam = Character('Pam Poovey','H.R. Director','Amber Nash',42424,'Farm-Girl')
+Cheryl = Character('Cheryl Tunt','Secretary','Judy Greer',50390,'Snot Gum, Choking')
+Krieger = Character('Dr. Algernop Krieger','HOD - Applied Research',
                  'Lucky Yates',105526,'Hitler\'s Clone')
 
 ##Season class
@@ -124,7 +127,7 @@ Season_9=Season(9,'Archer Danger Island',8,['Strange Island','Disheartening Situ
 
 ##Archer class
 print(Cheryl.post)
-print(Archer.number_of_char)
+print(Character.number_of_char)
 print(Krieger.full_profile())
 print(Malory.full_profile())
 print(Lana.prof())
